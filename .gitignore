@@ -1,4 +1,5 @@
-gurobi_entrega2.csv
+*.csv
+*.zip
 instancias-parte2/
 gurobi/
 gurobi.lic
