@@ -17,7 +17,7 @@ def solveInstance(filename):
     input_reader = open(filename, "r")
 
     first_line = input_reader.readline()
-    file_lines = input_reader.readlines()
+    content_lines = input_reader.readlines()
 
     input_reader.close() # fechando arquivo de entrada
 
@@ -30,22 +30,23 @@ def solveInstance(filename):
     # satisfacao (c_{ij} = lucro) por alocar a tarefa j ao agente i (j=1,...,n)
     profits_agents = [] # cada linha desse array 2D representa o lucro gerado por um agente ao realizar cada tarefa
     for i in range(nb_agents):
-        profits_agents.append(list(map(int, file_lines[i].split(" ")[:-1])))
+        profits_agents.append(list(map(int, content_lines[i].split(" ")[:-1])))
     
     # para cada agente i (i=1,...,m):
     # recurso consumido (a_{ij}) ao alocar a tarefa j ao agente i (j=1,...,n) 
     effort_agents = [] # cada linha desse array 2D representa o recurso consumido por um agente ao realizar cada tarefa
     for i in range(nb_agents):
-        effort_agents.append(list(map(int, file_lines[i].split(" ")[:-1])))
+        effort_agents.append(list(map(int, content_lines[nb_agents + i].split(" ")[:-1])))
     
     # capacidade do agente i (i=1,...,m)
     capacities_agents = [] # cada item (de índice i) desse array representa a capacidade de realização de tarefas do agente i
-    capacities_array = file_lines[len(file_lines)-1].split(" ")
+    capacities_array_line_index = nb_agents * 2
+    capacities_array = content_lines[capacities_array_line_index].split(" ")
     for i in range(nb_agents):
         capacities_agents.append(int(capacities_array[i]))
     
-    # for i in range(nb_agents):
-    #     print("\tAgente {} com capacidade = {}".format(i, capacities_agents[i]))
+    for i in range(nb_agents):
+        print("\tAgente {} com capacidade = {}".format(i, capacities_agents[i]))
 
     # ===== Criação do modelo =====
     # sense=MAXIMIZE -> queremos maximizar nossa função objetiva
@@ -55,7 +56,7 @@ def solveInstance(filename):
     # export GRB_LICENSE_FILE="/home/haltz/Downloads/USP - 2º semestre 2021/ProgMat/gurobi_lib/gurobi.lic" -> usar a licença do Gurobi
     model = Model(sense = MAXIMIZE, solver_name = GRB)
 
-    # model.preprocess = 0 # desabilizando preprocessamento
+    model.preprocess = 0 # desabilizando preprocessamento
 
     # ===== Variáveis de decisão =====
     decision_variables = []
@@ -136,6 +137,7 @@ for case_name in cases_name:
     exec_time = time.time() - start_time # tempo gasto resolvendo o caso de teste
 
     output_file.write(formatTestcaseCSV(case_name, exec_time, result_text, model.vars) + '\n')
+    output_file.flush()
 
 print("Finalizando programa...")
-output_file.close()
+output_file.close() 
