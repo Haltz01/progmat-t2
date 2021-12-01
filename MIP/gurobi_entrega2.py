@@ -45,18 +45,18 @@ def solveInstance(filename):
     for i in range(nb_agents):
         capacities_agents.append(int(capacities_array[i]))
     
-    for i in range(nb_agents):
-        print("\tAgente {} com capacidade = {}".format(i, capacities_agents[i]))
+    # for i in range(nb_agents):
+    #     print("\tAgente {} com capacidade = {}".format(i, capacities_agents[i]))
 
     # ===== Criação do modelo =====
     # sense=MAXIMIZE -> queremos maximizar nossa função objetiva
     # GRB = Gurobi
     # CBC = Coin-Or Branch and Cut
     # export GUROBI_HOME="/home/haltz/Downloads/USP - 2º semestre 2021/ProgMat/gurobi_lib/gurobi9.1.2_linux64/gurobi912/linux64/"
-    # export GRB_LICENSE_FILE="/home/haltz/Downloads/USP - 2º semestre 2021/ProgMat/gurobi_lib/gurobi.lic" -> usar a licença do Gurobi
+    # Para usar a licença do Gurobi: export GRB_LICENSE_FILE="/home/haltz/Downloads/USP - 2º semestre 2021/ProgMat/gurobi_lib/gurobi.lic"
     model = Model(sense = MAXIMIZE, solver_name = GRB)
-
     model.preprocess = 0 # desabilizando preprocessamento
+    # Pre-processing tries to improve your MIP formulation. -1 means automatic, 0 means off and 1 means on.
 
     # ===== Variáveis de decisão =====
     decision_variables = []
@@ -80,6 +80,8 @@ def solveInstance(filename):
     # Σ_{i=1}^m Σ_{j=1}^n ( c_{ij} * x_{ij} )
     model.objective = xsum(profits_agents[i][j] * decision_variables[i][j] for j in range(nb_tasks) for i in range(nb_agents))
 
+    print('Model has {} vars, {} constraints and {} nzs'.format(model.num_cols, model.num_rows, model.num_nz))
+
     # Realizando otimização com tempo limite de MAX_SECONDS
     status = model.optimize(max_seconds=MAX_SECONDS)
 
@@ -94,7 +96,7 @@ def analyzeResult(solve_status, model):
     elif solve_status == OptimizationStatus.FEASIBLE: # resultado viável encontrado
         solution_text = 'Solução viável encontrada com "lucro" de {} - esperança (melhor possível): {}'.format(model.objective_value, model.objective_bound)
     elif solve_status == OptimizationStatus.NO_SOLUTION_FOUND: # nenhum resultado encontrado
-        solution_text = 'Solução factível não encontrada - limite inferior: {}'.format(model.objective_bound)
+        solution_text = 'Solução factível não encontrada:'
     
     print('\t' + solution_text)
 
@@ -107,9 +109,9 @@ def analyzeResult(solve_status, model):
     return solution_text
 
 # Salvando resultados de cada caso de teste
-def formatTestcaseCSV(case_name: str, exec_time, sol_text: str, vars):
+def formatTestcaseCSV(case_name: str, exec_time, sol_text: str, num_nos_explorados, valor_limite_dual, gap, vars):
     #        'caso_teste,tempo_total,conclusao'
-    line = f'{case_name},{exec_time},{sol_text}'
+    line = f'{case_name},{exec_time},{sol_text},{num_nos_explorados},{valor_limite_dual},{gap}'
 
     # for var in vars: # variáveis do modelo
     #     if abs(var.x) > 1e-6:
@@ -122,11 +124,12 @@ def formatTestcaseCSV(case_name: str, exec_time, sol_text: str, vars):
     return line
 
 # Preparando primeira linha do arquivo de saída CSV
-first_line = 'caso_teste,tempo_total,conclusao'
+# o número de nós explorados, o valor da melhor solução, o valor do limitante dual e o GAP para cada instância resolvida. Analisar os resultados obtidos.
+first_line = 'caso_teste,tempo_total,conclusao,num_nos_explorados,limitante_dual,gap'
 # for i in range(MAX_AGENTS):
 #     first_line += ',agente{}'.format(i)
 
-output_file = open('gurobi_entrega2.csv', 'w+')
+output_file = open('gurobi_entrega2_sem_preprocessing.csv', 'a')
 output_file.write(first_line + '\n')
 
 for case_name in cases_name:
@@ -136,7 +139,11 @@ for case_name in cases_name:
 
     exec_time = time.time() - start_time # tempo gasto resolvendo o caso de teste
 
-    output_file.write(formatTestcaseCSV(case_name, exec_time, result_text, model.vars) + '\n')
+    gap = model.gap
+    best_possible_value = model.objective_bound
+    nb_explored_nodes = 0
+    
+    output_file.write(formatTestcaseCSV(case_name, exec_time, result_text,  nb_explored_nodes, best_possible_value, gap, model.vars) + '\n')
     output_file.flush()
 
 print("Finalizando programa...")
