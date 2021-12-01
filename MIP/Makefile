@@ -25,3 +25,7 @@ install:
 zip:
 	rm -f trab2.zip
 	zip trab2.zip gurobi9.5.0_linux64.tar.gz instancias-parte2.zip requirements.txt gurobi_entrega2.py Makefile .gitignore
+
+sourcezip:
+	rm -f trab2-src.zip
+	zip trab2-src.zip instancias-parte2.zip requirements.txt gurobi_entrega2.py Makefile .gitignore
