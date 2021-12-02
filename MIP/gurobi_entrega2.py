@@ -82,6 +82,9 @@ def solveInstance(filename):
 
     print('Model has {} vars, {} constraints and {} nzs'.format(model.num_cols, model.num_rows, model.num_nz))
 
+
+    model.setParam("heu*", "default")
+
     # Realizando otimização com tempo limite de MAX_SECONDS
     status = model.optimize(max_seconds=MAX_SECONDS)
 
