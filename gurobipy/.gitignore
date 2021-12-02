@@ -1,0 +1,9 @@
+*.csv
+*.zip
+
+!instancias-parte2.zip
+!gurobi9.5.0.64_linux64.tar.gz
+
+instances/
+gurobi/
+gurobi.lic

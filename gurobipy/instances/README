@@ -1,8 +1,0 @@
-Os arquivos com as instancias (adaptados de instancias disponiveis da OR-Library - http://people.brunel.ac.uk/~mastjjb/jeb/orlib/gapinfo.html) contem os dados no seguinte formato:
-
-numero de agentes (m), numero de tarefas (n)
- para cada agente i (i=1,...,m):
-     satisfacao (lucro) por alocar a tarefa j ao agente i (j=1,...,n)
- para cada agente i (i=1,...,m):
-     recurso consumido ao alocar a tarefa j ao agente i (j=1,...,n)
- capacidade do agente i (i=1,...,m)

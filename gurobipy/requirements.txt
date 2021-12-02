@@ -1,0 +1,2 @@
+gurobipy==9.5.0
+gurobipy-stubs==1.0.1
