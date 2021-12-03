@@ -13,6 +13,8 @@ INSTANCE_NAMES = ["d60900", "d201600", "d401600", "d801600", "e60900", "e801600"
 MAX_SECONDS = 3 * 60  # 3min convertido para segundos -> tempo máximo para cada instância
 MAX_AGENTS = 80  # número máximo de agentes
 
+TIMES_TO_RUN_EACH_PRESET = 2
+
 ### CLASSES E TIPOS ###
 
 VarDict = Dict[int, Dict[int, gp.Var]]
@@ -333,9 +335,8 @@ def main():
 
     for run in runs:
         print(f'\nExecutando solver com predefinições: {run.name}')
-        run_all_instances_with_params(run)
-
-    
+        for _ in range(TIMES_TO_RUN_EACH_PRESET):
+            run_all_instances_with_params(run)
 
 
 if __name__ == "__main__":
