@@ -1,3 +1,4 @@
+*.csv
 *.zip
 
 !instancias-parte2.zip

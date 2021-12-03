@@ -1,9 +1,12 @@
-all: | instances gurobi.lic
+all: | instances gurobi.lic results
 
 .PHONY: run
-run: | instances gurobi.lic
+run: | instances gurobi.lic results
 	GRB_LICENSE_FILE=./gurobi.lic \
 	python test.py
+
+results:
+	mkdir -p results
 
 gurobi.lic:
 	$(error "Licensa gurobi deve ser inserida na raiz do projeto como gurobi.lic. Para obter uma licensa, visite: https://www.gurobi.com/academia/academic-program-and-licenses/"")
@@ -20,4 +23,4 @@ zip:
 
 .PHONY: clean
 clean:
-	rm -r instances .mypy_cache .pycache __pycache__
+	rm -r .mypy_cache .pycache __pycache__ results
