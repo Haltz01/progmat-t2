@@ -164,12 +164,9 @@ def setup_instance_model(instance: Instance, solver_params: SolverParams) -> gp.
     model.setParam(gp.GRB.param.Presolve, 1 if solver_params.presolve else 0)
     model.setParam(gp.GRB.param.Method, solver_params.method)
     model.setParam(gp.GRB.param.TimeLimit, MAX_SECONDS)
-    model.setParam(gp.GRB.param.Threads, 4)
+    model.setParam(gp.GRB.param.Threads, 1)
     model.setParam(gp.GRB.param.Cuts, solver_params.cuts)
     model.setParam(gp.GRB.param.BranchDir, solver_params.branch_dir)
-
-    model.setParam('TimeLimit', MAX_SECONDS)
-    model.setParam('Threads', 6)
     return model
 
 def try_pass(lmbd):
