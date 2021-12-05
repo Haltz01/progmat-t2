@@ -322,12 +322,48 @@ def main():
         branch_dir=BranchDir.Auto
     )
 
+    dir_up_params = SolverParams(
+        presolve=True,
+        method=Method.Auto,
+        cuts=Cuts.Auto,
+        var_branch=VarBranch.Auto,
+        branch_dir=BranchDir.UpFirst
+    )
+
+    dir_down_params = SolverParams(
+        presolve=True,
+        method=Method.Auto,
+        cuts=Cuts.Auto,
+        var_branch=VarBranch.Auto,
+        branch_dir=BranchDir.DownFirst
+    )
+
+    cuts_agressive_params = SolverParams(
+        presolve=True,
+        method=Method.Auto,
+        cuts=Cuts.Aggressive,
+        var_branch=VarBranch.Auto,
+        branch_dir=BranchDir.Auto
+    )
+
+    cuts_very_agressive_params = SolverParams(
+        presolve=True,
+        method=Method.Auto,
+        cuts=Cuts.VeryAggressive,
+        var_branch=VarBranch.Auto,
+        branch_dir=BranchDir.Auto
+    )
+
     runs = [
         Run('Default', default_params, 'results/default.csv'),
         Run('No Preprocess', no_preprocess_params, 'results/no_preprocess.csv'),
         Run('No Cuts', no_cuts_params, 'results/no_cuts.csv'),
         Run('VarBranch Reducted Cost', varbrach_redcost_params, 'results/varbranch_redcost.csv'),
-        Run('VarBranch Strong', varbrach_strong_params, 'results/varbranch_strong.csv')
+        Run('VarBranch Strong', varbrach_strong_params, 'results/varbranch_strong.csv'),
+        Run('Branch Up', dir_up_params, 'results/branch_up.csv'),
+        Run('Branch Down', dir_down_params, 'results/branch_down.csv'),
+        Run('Cuts Agressive', cuts_agressive_params, 'results/cuts_agressive.csv'),
+        Run('Cuts Very Agressive', cuts_very_agressive_params, 'results/cuts_very_agressive.csv')
     ]
 
     for run in runs:
