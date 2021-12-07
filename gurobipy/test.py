@@ -374,10 +374,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # print(f'{gp.GRB.METHOD_AUTO=}')
-    # print(f'{gp.GRB.METHOD_BARRIER=}')
-    # print(f'{gp.GRB.METHOD_CONCURRENT=}')
-    # print(f'{gp.GRB.METHOD_DUAL=}')
-    # print(f'{gp.GRB.METHOD_DETERMINISTIC_CONCURRENT=}')
-    # print(f'{gp.GRB.METHOD_NONE=}')
-    # print(f'{gp.GRB.METHOD_PRIMAL=}')

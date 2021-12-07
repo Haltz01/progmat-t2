@@ -1,0 +1,16 @@
+Preset usado: Branch Down
+data_atual,caso_teste,tempo_total,conclusao,melhor_resultado,num_nos_explorados,limitante_dual,gap(%)
+2021-12-04 18:54:04,instances/d60900.in,180.005,time limit reached,-54714.000,2753,-54551.000,0.298
+2021-12-04 18:57:05,instances/d201600.in,180.008,time limit reached,-97874.000,4130,-97822.000,0.053
+2021-12-04 19:00:05,instances/d401600.in,180.015,time limit reached,-97193.000,1557,-97105.000,0.091
+2021-12-04 19:03:06,instances/d801600.in,180.015,time limit reached,-97348.000,633,-97034.000,0.323
+2021-12-04 19:06:07,instances/e60900.in,180.003,time limit reached,-100214.000,374,-100141.000,0.073
+2021-12-04 19:09:08,instances/e801600.in,180.011,time limit reached,-177240.000,1,-176812.156,0.241
+Preset usado: Branch Down
+data_atual,caso_teste,tempo_total,conclusao,melhor_resultado,num_nos_explorados,limitante_dual,gap(%)
+2021-12-04 19:12:08,instances/d60900.in,180.005,time limit reached,-54714.000,2420,-54551.000,0.298
+2021-12-04 19:15:09,instances/d201600.in,180.004,time limit reached,-97874.000,4130,-97822.000,0.053
+2021-12-04 19:18:09,instances/d401600.in,180.009,time limit reached,-97193.000,1498,-97105.000,0.091
+2021-12-04 19:21:10,instances/d801600.in,180.034,time limit reached,-97348.000,603,-97034.000,0.323
+2021-12-04 19:24:11,instances/e60900.in,180.003,time limit reached,-100229.000,90,-100141.000,0.088
+2021-12-04 19:27:12,instances/e801600.in,180.015,time limit reached,-177240.000,1,-176811.000,0.242

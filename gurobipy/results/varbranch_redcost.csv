@@ -1,0 +1,16 @@
+Preset usado: VarBranch Reducted Cost
+data_atual,caso_teste,tempo_total,conclusao,melhor_resultado,num_nos_explorados,limitante_dual,gap(%)
+2021-12-04 16:30:23,instances/d60900.in,180.006,time limit reached,-54702.000,3241,-54551.000,0.276
+2021-12-04 16:33:23,instances/d201600.in,180.002,time limit reached,-97891.000,3022,-97822.000,0.070
+2021-12-04 16:36:24,instances/d401600.in,180.006,time limit reached,-97197.000,2149,-97105.000,0.095
+2021-12-04 16:39:25,instances/d801600.in,180.016,time limit reached,-97328.000,825,-97034.000,0.302
+2021-12-04 16:42:26,instances/e60900.in,180.009,time limit reached,-100210.000,247,-100141.000,0.069
+2021-12-04 16:45:27,instances/e801600.in,180.033,time limit reached,-177196.000,1,-176814.000,0.216
+Preset usado: VarBranch Reducted Cost
+data_atual,caso_teste,tempo_total,conclusao,melhor_resultado,num_nos_explorados,limitante_dual,gap(%)
+2021-12-04 16:48:28,instances/d60900.in,180.007,time limit reached,-54702.000,3186,-54551.000,0.276
+2021-12-04 16:51:28,instances/d201600.in,180.004,time limit reached,-97891.000,2960,-97822.000,0.070
+2021-12-04 16:54:28,instances/d401600.in,180.009,time limit reached,-97197.000,2524,-97105.000,0.095
+2021-12-04 16:57:29,instances/d801600.in,180.017,time limit reached,-97328.000,939,-97034.000,0.302
+2021-12-04 17:00:30,instances/e60900.in,180.004,time limit reached,-100210.000,174,-100141.000,0.069
+2021-12-04 17:03:31,instances/e801600.in,180.008,time limit reached,-177240.000,1,-176811.000,0.242

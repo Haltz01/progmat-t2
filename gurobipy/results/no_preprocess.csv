@@ -1,0 +1,16 @@
+Preset usado: No Preprocess
+data_atual,caso_teste,tempo_total,conclusao,melhor_resultado,num_nos_explorados,limitante_dual,gap(%)
+2021-12-04 15:18:08,instances/d60900.in,180.004,time limit reached,-54690.000,2821,-54551.000,0.254
+2021-12-04 15:21:08,instances/d201600.in,180.005,time limit reached,-97859.000,2996,-97822.000,0.038
+2021-12-04 15:24:09,instances/d401600.in,180.004,time limit reached,-97310.000,2052,-97105.000,0.211
+2021-12-04 15:27:10,instances/d801600.in,180.015,time limit reached,-97359.000,1105,-97034.000,0.334
+2021-12-04 15:30:10,instances/e60900.in,180.007,time limit reached,-100200.000,1242,-100138.000,0.062
+2021-12-04 15:33:12,instances/e801600.in,180.026,time limit reached,-176905.000,4,-176814.000,0.051
+Preset usado: No Preprocess
+data_atual,caso_teste,tempo_total,conclusao,melhor_resultado,num_nos_explorados,limitante_dual,gap(%)
+2021-12-04 15:36:12,instances/d60900.in,180.004,time limit reached,-54686.000,3750,-54551.000,0.247
+2021-12-04 15:39:12,instances/d201600.in,180.002,time limit reached,-97859.000,3788,-97822.000,0.038
+2021-12-04 15:42:13,instances/d401600.in,180.004,time limit reached,-97310.000,2566,-97105.000,0.211
+2021-12-04 15:45:14,instances/d801600.in,180.016,time limit reached,-97341.000,1378,-97034.000,0.315
+2021-12-04 15:48:15,instances/e60900.in,180.002,time limit reached,-100200.000,1305,-100146.000,0.054
+2021-12-04 15:51:16,instances/e801600.in,180.070,time limit reached,-176905.000,28,-176814.000,0.051
